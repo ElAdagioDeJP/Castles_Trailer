@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Castle’s Trailer Repair Services | Leesburg, VA</title>
   <meta name="description" content="Trailer repair services in Leesburg, VA. Brakes, suspension, axles, bearings, welding, electrical, tires, roof/floor, custom mods, DOT inspections. English & Spanish." />
+  <link rel="icon" href="icono.png" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -74,19 +75,12 @@
     .credits{opacity:.7}
     .note{font-size:12px;color:#9bb4d9;margin-top:6px}
     .flag{font-size:13px;color:#bcd1f5}
-    /* responsive */
-    @media (max-width: 980px){
-      .hero-wrap{grid-template-columns:1fr}
-      .services-grid{grid-template-columns:1fr 1fr}
-      .two-col,.cols{grid-template-columns:1fr}
-      .menu{gap:14px}
-      .brand h1{font-size:20px}
-    }
-    @media (max-width: 640px){
-      .services-grid{grid-template-columns:1fr}
-      .hero h2{font-size:30px}
-      .brand img{height:40px}
-      .cta{padding:9px 13px}
+    /* mobile nav styles */
+    .nav-toggle { display: none; font-size: 24px; background: none; border: none; color: var(--white); cursor: pointer; }
+    @media (max-width: 980px) {
+      .nav-toggle { display: block; }
+      .menu { display: none; flex-direction: column; gap: 14px; background: rgba(0,0,0,0.8); position: absolute; top: 100%; right: 20px; padding: 10px 20px; border-radius: 10px; }
+      .menu.open { display: flex; }
     }
   </style>
 </head>
@@ -95,7 +89,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="logo.png" alt="Castle logo" />
+        <img src="logo.jpg" alt="Castle logo" />
         <h1>Castle’s Trailer Repair Services</h1>
       </div>
       <nav class="menu">
@@ -349,6 +343,11 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const navToggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.menu');
+    navToggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
