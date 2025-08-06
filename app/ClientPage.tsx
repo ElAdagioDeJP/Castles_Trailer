@@ -270,7 +270,7 @@ export default function CastleTrailerRepairLanding() {
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
                 Castle's Trailer Repair Services
               </h1>
-              <p className="text-xl md:text-2xl mb-8 leading-relaxed text-blue-100">
+              <p className="text-xl md:text-2xl mb-8 leading-relaxed text-white-100">
                 Expert trailer repair services in Leesburg, VA. Over 5 years of experience keeping your trailers, RVs,
                 and boats safe and on the road.
               </p>
