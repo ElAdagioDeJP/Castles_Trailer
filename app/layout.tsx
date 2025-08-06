@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/castle-logo.jpg',
+        url: '../public/images/castle-logo.png',
         width: 800,
         height: 600,
         alt: "Castle's Trailer Repair Services Logo",
@@ -39,12 +39,12 @@ export const metadata: Metadata = {
     title: "Castle's Trailer Repair Services | Leesburg, VA",
     description:
       "Expert trailer repair services for RVs, boat trailers, cargo, horse, utility, and dump trailers in Leesburg, VA. Bilingual service (English & Spanish), weekend appointments, certified technicians.",
-    images: ['/castle-logo.jpg'],
+    images: ['../public/images/castle-logo.png'],
   },
   icons: {
-    icon: '/castle-logo.jpg',
-    apple: '/castle-logo.jpg',
-    shortcut: '/castle-logo.jpg',
+    icon: '../public/images/castle-logo.png',
+    apple: '../public/images/castle-logo.png',
+    shortcut: '../public/images/castle-logo.png',
   },
 };
 
