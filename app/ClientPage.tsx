@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Image from "next/image"
 
+import { toast } from "sonner"
+
 export default function CastleTrailerRepairLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
@@ -33,14 +35,14 @@ export default function CastleTrailerRepairLanding() {
       })
 
       if (response.ok) {
-        alert("Thank you for contacting Castle's Auto Trailer Repair Services! We'll get back to you soon.")
+        toast.success("Thank you for contacting Castle's Auto Trailer Repair Services! We'll get back to you soon.")
         setFormData({ name: "", email: "", phone: "", trailerType: "", message: "" })
       } else {
-        alert("Sorry, there was an error sending your message. Please try again later.")
+        toast.error("Sorry, there was an error sending your message. Please try again later.")
       }
     } catch (error) {
       console.error("Submission error:", error)
-      alert("Sorry, there was an error sending your message. Please try again later.")
+      toast.error("Sorry, there was an error sending your message. Please try again later.")
     }
   }
 
