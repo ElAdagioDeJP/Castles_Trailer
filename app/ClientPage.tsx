@@ -21,11 +21,27 @@ export default function CastleTrailerRepairLanding() {
     message: "",
   })
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-    alert("Thank you for contacting Castle's Trailer Repair Services! We'll get back to you soon.")
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        alert("Thank you for contacting Castle's Auto Trailer Repair Services! We'll get back to you soon.")
+        setFormData({ name: "", email: "", phone: "", trailerType: "", message: "" })
+      } else {
+        alert("Sorry, there was an error sending your message. Please try again later.")
+      }
+    } catch (error) {
+      console.error("Submission error:", error)
+      alert("Sorry, there was an error sending your message. Please try again later.")
+    }
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -130,7 +146,7 @@ export default function CastleTrailerRepairLanding() {
                   className="rounded-lg"
                 />
                 <div>
-                  <h1 className="text-lg font-bold text-white">Castle's Trailer Repair Services</h1>
+                  <h1 className="text-lg font-bold text-white">Castle's Auto Trailer Repair Services</h1>
                 </div>
               </div>
             </div>
@@ -268,7 +284,7 @@ export default function CastleTrailerRepairLanding() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="max-w-4xl">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
-                Castle's Trailer Repair Services
+                Castle's Auto Trailer Repair Services
               </h1>
               <p className="text-xl md:text-2xl mb-8 leading-relaxed text-white-100">
                 Expert trailer repair services in Leesburg, VA. Over 5 years of experience keeping your trailers, RVs,
@@ -382,7 +398,7 @@ export default function CastleTrailerRepairLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">About Castle's Trailer Repair Services</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">About Castle's Auto Trailer Repair Services</h2>
               <div className="space-y-6 text-gray-300">
                 <p className="text-lg leading-relaxed">
                   With over 5 years of dedicated experience in the trailer repair industry, Castle's Trailer Repair
@@ -414,7 +430,7 @@ export default function CastleTrailerRepairLanding() {
             <div>
               <Image
                 src="/images/team-workshop.jpg"
-                alt="Castle's Trailer Repair Services professional team working in our modern workshop facility"
+                alt="Castle's Auto Trailer Repair Services professional team working in our modern workshop facility"
                 width={600}
                 height={500}
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover"
@@ -431,7 +447,7 @@ export default function CastleTrailerRepairLanding() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">Ready for Expert Trailer Service?</h2>
           <p className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto text-blue-100">
-            Don't let a small problem become a costly repair. Contact Castle's Trailer Repair Services today for
+            Don't let a small problem become a costly repair. Contact Castle's Auto Trailer Repair Services today for
             professional service you can trust.
           </p>
           <Button
@@ -456,7 +472,7 @@ export default function CastleTrailerRepairLanding() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div>
-              <h2 className="text-4xl font-bold text-white mb-8">Contact Castle's Trailer Repair Services</h2>
+              <h2 className="text-4xl font-bold text-white mb-8">Contact Castle's Auto Trailer Repair Services</h2>
               <form onSubmit={handleFormSubmit} className="space-y-6">
                 <div>
                   <Input
@@ -523,25 +539,25 @@ export default function CastleTrailerRepairLanding() {
                   type="submit"
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Send Message to Castle's Trailer Repair Services
+                  Send Message to Castle's Auto Trailer Repair Services
                 </Button>
               </form>
             </div>
 
             {/* Location Info */}
             <div>
-              <h2 className="text-4xl font-bold text-white mb-8">Find Castle's Trailer Repair Services</h2>
+              <h2 className="text-4xl font-bold text-white mb-8">Find Castle's Auto Trailer Repair Services</h2>
               <div className="space-y-8">
                 <div className="rounded-2xl overflow-hidden shadow-lg border border-blue-500/30">
                   <iframe
-                    title="Castle's Trailer Repair Services Location"
+                    title="Castle's Auto Trailer Repair Services Location"
                     width="100%"
                     height="280"
                     style={{ border: 0, borderRadius: "12px" }}
                     loading="lazy"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps?q=22772%20Evergreen%20Mills%20Rd%2C%20Leesburg%2C%20VA%2020175&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3111.079929900931!2d-77.5198790236293!3d38.96727587170859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b63f6b14555555%3A0x3c8f3598de3a1bff!2sCastle&#39;s%20Trailer%20Repair%20Services%20LLC!5e0!3m2!1ses-419!2sve!4v1722953272742!5m2!1ses-419!2sve"
                   />
                 </div>
                 <div className="space-y-6">
@@ -617,7 +633,7 @@ export default function CastleTrailerRepairLanding() {
                   className="rounded-lg"
                 />
                 <div>
-                  <h3 className="text-xl font-bold">Castle's Trailer Repair Services</h3>
+                  <h3 className="text-xl font-bold">Castle's Auto Trailer Repair Services</h3>
                   <p className="text-sm text-blue-300">Delivering Safely On Time!</p>
                 </div>
               </div>
@@ -655,7 +671,7 @@ export default function CastleTrailerRepairLanding() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-bold mb-6">Contact Castle's Trailer Repair Services</h4>
+              <h4 className="text-lg font-bold mb-6">Contact Castle's Auto Trailer Repair Services</h4>
               <div className="space-y-3 text-gray-300">
                 <p>22772 Evergreen Mills Rd</p>
                 <p>Leesburg, VA 20175</p>
@@ -666,7 +682,7 @@ export default function CastleTrailerRepairLanding() {
             </div>
           </div>
           <div className="border-t border-blue-500/30 mt-12 pt-8 text-center text-gray-300">
-            <p>&copy; 2025 Castle's Trailer Repair Services LLC. All rights reserved. | Delivering Safely On Time!</p>
+            <p>&copy; 2025 Castle's Auto Trailer Repair Services LLC. All rights reserved. | Delivering Safely On Time!</p>
           </div>
         </div>
       </footer>
