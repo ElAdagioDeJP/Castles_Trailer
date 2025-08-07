@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
   const msg = {
     to: "castleautotransport1@gmail.com", // El correo del dueño de la página.
-    from: "castles.trailer.services@gmail.com", // ¡IMPORTANTE! Debe ser un correo que hayas verificado en SendGrid.
+    from: "castleautotransport1@gmail.com", // ¡IMPORTANTE! Debe ser un correo que hayas verificado en SendGrid.
     subject: `Nuevo Mensaje de Contacto de ${name}`,
     html: `
       <h1>Nueva consulta desde tu sitio web</h1>
