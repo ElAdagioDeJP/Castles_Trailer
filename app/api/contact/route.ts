@@ -19,7 +19,7 @@ export async function POST(request: Request) {
   const msg = {
     to: "castleautotransport1@gmail.com", // The website owner's email.
     from: "contact@castlestrailerepair.com", // This must be a verified email in SendGrid.
-    subject: `New Contact Form Submission from ${name}`,
+    subject: `New Appointment from Castle's Auto Trailer Repair Services`,
     html: `
       <!DOCTYPE html>
       <html lang="en">
